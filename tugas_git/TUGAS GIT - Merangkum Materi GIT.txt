@@ -1,0 +1,48 @@
+TUGAS GIT - Merangkum Materi GIT
+
+#1 INTRO GIT
+GIT adalah salah satu version control system yang berfungsi untuk mencatat 
+setiap perubahan file di sourcode kita serta berfungsi untuk berkolaborasi.
+
+Macam-macam GIT : Github, Gitlab dan Bitbucket
+
+#2 Fundamental GIT
+Perintah dasar git :
+- git init : digunakan untuk menginisialisasi repository
+- git config : konfigurasi email dan username, disamakan dengan akun github
+- git status : digunakan untuk mengetahui status file
+- git add : untuk memasukan file ke staging area
+- git commit : untuk mencatat perubahan yang dilakukan
+- git clone : digunakan untuk mengcopy repo dari server
+- git remote : api untuk berinteraksi dari client dengan server
+- git push : untuk mengirimkan commit ke server
+- git pull : untuk mengambil commit dari server jika ada perubahan di server yang dibuat oleh branch lain
+- git log : untuk melihat riwayat commit
+
+# Branch
+adalah cabang dari sebuah repository digunakan untuk pararel perubahan
+perintah yang sering digunakan :
+- git branch: melihat semua branch (local)
+- git branch --all: melihat semua branch (public)
+- git branch nama_branch: membuat branch baru
+- git checkout nama_branch: untuk berpindah branch
+- git branch -d nama_branch: untuk menghapus branch
+- git merge nama_branch : untuk menggabungkan commit dari 2 branch, pastikan tidak ada perubahan yang belum di commit.
+
+*Conflict : kondisi yang terjadi ketika merging 2 branch yang memiliki perubahan pada file yang sama, jika conflict tidak 
+            bisa melakukan commit, conflict harus diselesaikan terlebih dahulu
+
+# GUI - Sourcetree
+Software berbasis GUI untuk memudahkan dalam mengoperasikan git, terutama saat terjadi conflict.
+
+Dengan Sourcetree, pengguna dapat melakukan berbagai tugas seperti mengelola cabang, menggabungkan perubahan, 
+meninjau riwayat commit, dan berkolaborasi dengan rekan tim dalam proyek
+
+
+
+
+
+
+
+
+

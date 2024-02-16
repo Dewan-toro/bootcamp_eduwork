@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Tebak Angka</title>
+  </head>
+  <body>
+    <h1>Selamat Datang di Game Tebak Angka</h1>
+    <p>Kamu diminta untuk menebak angka 1 - 3 dalam 5 ronde.</p>
+    <p>Player yang berhasil mengumpulkan tebakan terbanyak akan menang.</p>
+    <p>SELAMAT BERMAIN!!!</p>
+    <button onclick="startGame()">Mulai Permainan</button>
+    <script>
+      function startGame() {
+        let skorP1 = 0;
+        let skorP2 = 0;
+        let ronde = 1;
+        let stop = true;
+
+        while (stop) {
+          let p1 = parseInt(prompt("Player 1: masukkan angka (1-3)"));
+          let p2 = parseInt(prompt("Player 2: masukkan angka (1-3)"));
+
+          let random = getRandom();
+          let ulangi = validasi(p1, p2);
+          if (!ulangi) {
+            stop = window.confirm("Ulangi?");
+          } else {
+            if (p1 !== random && p2 !== random) {
+              alert("Tidak ada yang benar. Hasil SERI");
+            } else {
+              if (p1 === random) {
+                alert("Player 1 Menang");
+                skorP1++;
+              }
+              if (p2 === random) {
+                alert("Player 2 Menang");
+                skorP2++;
+              }
+            }
+
+            alert(`
+                Angka yang dicari: ${random}
+                -----------------------------------
+                - Player 1: ${skorP1}
+                - Player 2: ${skorP2}`);
+
+            ronde++;
+            if (ronde <= 5) {
+              stop = window.confirm("Ronde " + ronde + "?");
+            } else {
+              if (skorP1 > skorP2) {
+                alert("Good Jobs Player 1");
+                stop = false;
+              } else if (skorP1 < skorP2) {
+                alert("Good Jobs Player 2");
+                stop = false;
+              } else {
+                alert(`Pertarungan sangat sengit`);
+                ronde = 1;
+                skorP1 = 0;
+                skorP2 = 0;
+                stop = window.confirm("Mau main lagi?");
+              }
+            }
+          }
+        }
+
+        function validasi(player1, player2) {
+          if (player1 === player2) {
+            alert("Tebakan tidak boleh sama");
+            return false;
+          }
+
+          if (player1 < 1 || player2 < 1) {
+            alert("Tebakan tidak boleh kurang dari 1");
+            return false;
+          }
+
+          if (player1 > 3 || player2 > 3) {
+            alert("Tebakan tidak boleh lebih dari 3");
+            return false;
+          }
+
+          if (isNaN(player1) || isNaN(player2)) {
+            alert("Salah satu player belum menebak");
+            return false;
+          }
+
+          return true;
+        }
+
+        function getRandom() {
+          return Math.floor(Math.random() * 3) + 1;
+        }
+      }
+    </script>
+  </body>
+</html>

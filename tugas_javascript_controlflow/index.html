@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Javascript Control Flow - Dewantoro</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css"
+    />
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Tugas Javascript Control Flow - Dewantoro</h1>
+      <h3>Form Input Nilai Mahasiswa</h3>
+    </div>
+    <form
+      id="myForm"
+      style="margin: 50px; align-items: center; text-align: center"
+    >
+      <label for="name">Nama:</label><br />
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="nilai">Nilai:</label><br />
+      <input type="number" id="nilai" name="nilai" /><br /><br />
+      <button type="button" value="Submit" onclick="displayData()">
+        Submit
+      </button>
+    </form>
+  </body>
+  <script>
+    function displayData() {
+      var name = document.getElementById("name").value;
+      var nilai = document.getElementById("nilai").value;
+
+      nilai = parseInt(nilai);
+
+      if (nilai >= 85 && nilai <= 100) {
+        Swal.fire({
+          title: "Nilai anda A",
+          text: "Selamat " + name.toUpperCase() + " anda lulus!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            document.getElementById("myForm").reset();
+          }
+        });
+      } else if (nilai >= 70 && nilai < 85) {
+        Swal.fire({
+          title: "Nilai anda B",
+          text: "Selamat " + name.toUpperCase() + " anda lulus!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      } else if (nilai >= 65 && nilai < 70) {
+        Swal.fire({
+          title: "Nilai anda C",
+          text: "Mohon maaf " + name.toUpperCase() + " anda tidak lulus!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else if (nilai >= 50 && nilai < 65) {
+        Swal.fire({
+          title: "Nilai anda D",
+          text: "Mohon maaf " + name.toUpperCase() + " anda tidak lulus!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "Nilai anda E",
+          text: "Mohon maaf " + name.toUpperCase() + " anda tidak lulus!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+      document.getElementById("myForm").reset();
+    }
+  </script>
+</html>
